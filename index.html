@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edukasi Ketahanan Pangan</title>
+
+    <style>
+        /* Mengatur tampilan dasar seluruh halaman */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #23415c;
+            line-height: 1.6;
+        }
+
+        /* Bagian header atau judul website */
+        header {
+            background: linear-gradient(135deg, #80d0ff, #318ce7);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        header p {
+            font-size: 17px;
+        }
+
+        /* Mengatur area konten utama */
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        /* Desain setiap kotak konten */
+        .card {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 80, 150, 0.08);
+        }
+
+        .card h2 {
+            color: #2185d5;
+            margin-bottom: 15px;
+        }
+
+        /* Mengatur daftar tips */
+        .tips {
+            padding-left: 25px;
+        }
+
+        .tips li {
+            margin-bottom: 12px;
+        }
+
+        /* Desain tombol */
+        button {
+            background-color: #2185d5;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1265ad;
+            transform: translateY(-2px);
+        }
+
+        /* Kotak informasi yang muncul saat tombol diklik */
+        #fakta {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e3f4ff;
+            border-left: 5px solid #2185d5;
+            border-radius: 8px;
+            display: none;
+        }
+
+        /* Bagian footer */
+        footer {
+            background-color: #d9efff;
+            text-align: center;
+            padding: 20px;
+            color: #45677f;
+        }
+
+        /* Tampilan khusus untuk HP */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 27px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            main {
+                padding: 15px;
+                margin: 15px auto;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Bagian judul website -->
+    <header>
+        <h1>🌾 Ketahanan Pangan</h1>
+        <p>Membangun Masa Depan dengan Pangan yang Cukup dan Berkualitas</p>
+    </header>
+
+    <main>
+
+        <!-- Bagian penjelasan ketahanan pangan -->
+        <section class="card">
+            <h2>Apa Itu Ketahanan Pangan?</h2>
+
+            <p>
+                Ketahanan pangan adalah kondisi ketika setiap orang
+                memiliki akses terhadap pangan yang cukup, aman,
+                bergizi, dan terjangkau untuk memenuhi kebutuhan
+                hidup sehari-hari.
+            </p>
+
+            <p>
+                Ketahanan pangan sangat penting untuk menciptakan
+                masyarakat yang sehat, produktif, dan sejahtera.
+            </p>
+        </section>
+
+        <!-- Bagian tiga tips menjaga ketahanan pangan -->
+        <section class="card">
+            <h2>3 Tips Menjaga Ketahanan Pangan</h2>
+
+            <ol class="tips">
+                <li>
+                    <strong>Mengurangi Pemborosan Makanan</strong><br>
+                    Ambil makanan secukupnya dan simpan bahan makanan
+                    dengan benar agar tidak cepat rusak.
+                </li>
+
+                <li>
+                    <strong>Mendukung Produk Pertanian Lokal</strong><br>
+                    Membeli hasil pertanian dari petani lokal
+                    membantu meningkatkan kesejahteraan petani.
+                </li>
+
+                <li>
+                    <strong>Menanam Tanaman Pangan Sendiri</strong><br>
+                    Manfaatkan halaman rumah untuk menanam cabai,
+                    tomat, sayuran, atau tanaman pangan lainnya.
+                </li>
+            </ol>
+        </section>
+
+        <!-- Bagian interaktif dengan JavaScript -->
+        <section class="card">
+            <h2>💡 Tahukah Kamu?</h2>
+
+            <p>
+                Yuk, temukan informasi menarik tentang ketahanan
+                pangan dengan menekan tombol di bawah ini!
+            </p>
+
+            <button onclick="tampilkanFakta()">
+                Tahukah Kamu?
+            </button>
+
+            <!-- Tempat menampilkan informasi -->
+            <div id="fakta" aria-live="polite"></div>
+        </section>
+
+    </main>
+
+    <!-- Bagian penutup website -->
+    <footer>
+        <p>
+            © 2026 Edukasi Ketahanan Pangan |
+            Belajar untuk Masa Depan yang Lebih Baik 🌱
+        </p>
+    </footer>
+
+    <script>
+        // Kumpulan fakta dan tips tentang ketahanan pangan
+        const daftarFakta = [
+            "Indonesia memiliki berbagai sumber pangan selain beras, seperti jagung, singkong, sagu, dan ubi.",
+            
+            "Menanam sayuran sendiri di rumah dapat membantu memenuhi kebutuhan pangan keluarga.",
+            
+            "Menyimpan makanan dengan suhu dan cara yang tepat dapat membantu mengurangi makanan terbuang.",
+            
+            "Mendukung petani lokal membantu menjaga ketersediaan pangan di daerah sekitar.",
+            
+            "Mengonsumsi makanan yang beragam membantu memenuhi kebutuhan gizi tubuh."
+        ];
+
+        // Menyimpan indeks fakta yang terakhir ditampilkan
+        let faktaTerakhir = -1;
+
+        // Fungsi yang dijalankan ketika tombol diklik
+        function tampilkanFakta() {
+
+            let indeksBaru;
+
+            // Memilih fakta secara acak
+            // agar tidak langsung mengulang fakta sebelumnya
+            do {
+                indeksBaru = Math.floor(
+                    Math.random() * daftarFakta.length
+                );
+            } while (indeksBaru === faktaTerakhir);
+
+            // Menyimpan indeks fakta terbaru
+            faktaTerakhir = indeksBaru;
+
+            // Mengambil elemen HTML dengan ID "fakta"
+            const kotakFakta = document.getElementById("fakta");
+
+            // Menampilkan fakta yang dipilih
+            kotakFakta.textContent = daftarFakta[indeksBaru];
+
+            // Membuat kotak fakta terlihat
+            kotakFakta.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
